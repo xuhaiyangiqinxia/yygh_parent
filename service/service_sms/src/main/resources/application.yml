@@ -1,0 +1,24 @@
+server:
+  port: 8204
+spring:
+  application:
+    name: service-sms
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  redis:
+    port: 6379
+    host: 192.168.142.6
+    database: 0
+    timeout: 1800000
+
+  jackson:
+    time-zone: GMT+8
+    date-format: yy:MM:dd HH:mm:ss
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

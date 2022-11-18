@@ -1,0 +1,35 @@
+server:
+  port: 8202
+spring:
+  application:
+    name: service-cmn
+  datasource:
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yygh_cmn?useSSL=false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 5MB              #一次请求中每个文件最大值
+      max-request-size: 5MB           #一次请求中所有文件最大值
+  devtools:
+    livereload:
+      port: 35731
+  redis:
+    host: 192.168.142.6
+    database: 0
+    port: 6379
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

@@ -1,0 +1,31 @@
+server:
+  port: 8201
+spring:
+  application:
+    name: service-hosp
+  profiles:
+    active: dev
+  datasource:
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yygh_hosp?useSSL=false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+  data:
+    mongodb:
+      port: 27017
+      uri: mongodb://192.168.142.6:27017/test
+      auto-index-creation: false
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+feign:
+  sentinel:
+    enabled: true

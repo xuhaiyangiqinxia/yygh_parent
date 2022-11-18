@@ -1,0 +1,43 @@
+server:
+  port: 8222
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        - id: service-cmn
+          uri: lb://service-cmn
+          predicates:
+            - Path=/admin/cmn/**
+        - id: service-hosp
+          uri: lb://service-hosp
+          predicates:
+            - Path=/admin/hosp/**,/admin/hospset/**,/admin/user/**,/admin/schedule/**,/user/hosp/**,/user/dept/**,/user/schedule/**
+        - id: service-user
+          uri: lb://service-user
+          predicates:
+            - Path=/*/userinfo/**,/user/wx/**,/admin/userInfo/**,/user/patient/**,
+        - id: service-sms
+          uri: lb://service-sms
+          predicates:
+            - Path=/user/sms/**,
+        - id: service-oss
+          uri: lb://service-oss
+          predicates:
+            - Path=/*/oss/**,
+        - id: service-orders
+          uri: lb://service-orders
+          predicates:
+            - Path=/*/order/**,
+
+
+        - id: service-hosp1
+          uri: lb://service-hosp
+          predicates:
+            - Path=/admin/**
